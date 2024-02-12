@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "685663361062",
+    "project_id": "assistapp-6b07f",
+    "storage_bucket": "assistapp-6b07f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685663361062:android:7192f29cf3304ce0842ee7",
+        "android_client_info": {
+          "package_name": "com.example.assistapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS1BSpWTvJMhjiKgmtr9UuRkW1l4xpmUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

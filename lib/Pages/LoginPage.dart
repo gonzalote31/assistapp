@@ -1,15 +1,18 @@
+import 'package:assistapp/AuthServices/firebase_authentication.dart';
+import 'package:assistapp/Pages/ForgotPasswordScreen.dart';
+import 'package:assistapp/Pages/HomeScreen.dart';
+import 'package:assistapp/Pages/RegisterScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:logo_n_spinner/logo_n_spinner.dart';
 
 class LoginPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -130,19 +133,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     String username = _usernameController.text;
                     String password = _passwordController.text;
+                    String email = '$username@espoch.edu.ec';
 
-                    if (username == 'jeferson' && password == '123') {
-                      setState(() {
-                        authenticated = true;
-                      });
+                    setState(() => authenticated = true);
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen(username:username)),
-                      );
+                    dynamic result = await FirebaseAuthentication().signInWithEmailAndPassword(email, password);
+
+                    if (result != null) {
+                      print(result);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(username: username)));
                     } else {
                       showDialog(
                         context: context,
