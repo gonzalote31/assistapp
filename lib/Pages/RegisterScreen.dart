@@ -1,5 +1,4 @@
 import 'package:assistapp/AuthServices/firebase_authentication.dart';
-import 'package:assistapp/Pages/HomeScreen.dart';
 import 'package:assistapp/Pages/LoginPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
